@@ -1,0 +1,190 @@
+{
+  "info": {
+    "_postman_id": "797bab39-95f8-4785-a774-2a0907ad283c",
+    "name": "Cart_mock",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "/postCart",
+      "_postman_id": "5c5f9221-9634-40bf-b699-1a97c2fb3be1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{url}}/postCart/Cart_item",
+        "description": "Adds an item to the cart"
+      },
+      "response": [
+        {
+          "id": "5cfc5d68-08a0-44d3-97ca-509e13dc4eef",
+          "name": "Successfully Added an Item to Cart",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{url}}/postCart/Cart_item"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\r\n \"message\": \"Successfully Added an Item to Cart\"\r\n}"
+        },
+        {
+          "id": "199f51c8-bed2-49ec-a62f-b17da2890d04",
+          "name": "Invalid Request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{url}}/postCart/400Error"
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Fri, 23 Oct 2020 22:10:36 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "x-srv-trace",
+              "value": "v=1;t=759e83b795ca38ca"
+            },
+            {
+              "key": "x-srv-span",
+              "value": "v=1;s=2080c890dccd135f"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "X-RateLimit-Limit",
+              "value": "120"
+            },
+            {
+              "key": "X-RateLimit-Remaining",
+              "value": "119"
+            },
+            {
+              "key": "X-RateLimit-Reset",
+              "value": "1603491096"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"36-LI2c4QulFC8bsEl24uiBrXE7USc\""
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\r\n    \"message\": \"Item not provided\"\r\n}"
+        }
+      ]
+    },
+    {
+      "name": "/getCart",
+      "_postman_id": "1c71c032-42f8-4cad-ac06-b5a9f97c4903",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{url}}/getCart/Cart",
+        "description": "retrive the current cart (returns array of items)"
+      },
+      "response": [
+        {
+          "id": "88014c6d-4b67-43eb-989a-93340c7e4220",
+          "name": "Cart successfully retrieved",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": "{{url}}/getCart/Cart"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "Text",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "[\n {\n  \"id\": 86474178,\n  \"name\": \"Clemson Hat\",\n  \"description\": \"Purple with Orange letters\",\n  \"price\": 11.99,\n  \"quantity\": 1\n },\n {\n  \"id\": 64783798,\n  \"name\": \"Clemson Large T Shirt\",\n  \"description\": \"Large Shirt with Orange letters\",\n  \"price\": 33.99,\n  \"quantity\": 7\n }\n]"
+        },
+        {
+          "id": "f6741498-ec3a-4699-ad8f-362d23cfa278",
+          "name": "Invalid request",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": "{{url}}/getCart/400Error"
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "Text",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"Cart not found\"\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "id": "baseUrl",
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
