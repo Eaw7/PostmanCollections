@@ -1,0 +1,371 @@
+{
+  "info": {
+    "_postman_id": "3e4ca8f4-bae0-4532-883f-37b9c2b8b8d9",
+    "name": "Cart API Documentation",
+    "description": "An API for the Cart on an E-Commerce store containing fan gear and other items. This API is responsible for holding items the Customer wishes to purchase.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "cart",
+      "item": [],
+      "_postman_id": "ecba3f6d-b668-4f73-91e1-ed37a91b35cd",
+      "description": "The Cart contains a list of items for purchasing."
+    },
+    {
+      "name": "/getCart",
+      "_postman_id": "e8d509c7-dd81-45f7-8a41-8183c1f0da94",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{url}}/getCart/Cart",
+        "description": "Retrieves the current cart (returns list of items)\n\nThe /getCart/Cart path output returns a list of Item objects containing:\n- id (integer) = The ID number of an item to be purchased.\n- name (string) = The name of the item.\n- description (string) = A description of the item.\n- price (double) = The price of the item.\n- quantity (integer) = The quantity of an item to be purchased.\n\nIf an error occurs, the output contains the following and a 400 Error response:\n- message = Cart Does Not Exist"
+      },
+      "response": [
+        {
+          "id": "124ffc9d-88e8-4881-b42e-f2345938390d",
+          "name": "Invalid Request",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": "{{url}}/getCart/400Error"
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "Text",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Thu, 22 Oct 2020 01:49:27 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "37"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "x-srv-trace",
+              "value": "v=1;t=1d512f6833d77f1a"
+            },
+            {
+              "key": "x-srv-span",
+              "value": "v=1;s=28fb735f46b2bb61"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "X-RateLimit-Limit",
+              "value": "120"
+            },
+            {
+              "key": "X-RateLimit-Remaining",
+              "value": "119"
+            },
+            {
+              "key": "X-RateLimit-Reset",
+              "value": "1603331427"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"25-jWsllbvhdqAAzR1NtQlqBeC6tcE\""
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"message\": \"Cart Does Not Exist\"\n}"
+        },
+        {
+          "id": "af0d2f0e-0611-47eb-9abc-fb7eb6014499",
+          "name": "Cart Retrieved",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": "{{url}}/getCart/Cart"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "Text",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Thu, 22 Oct 2020 01:50:20 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "x-srv-trace",
+              "value": "v=1;t=92bad0d12b2bfeb1"
+            },
+            {
+              "key": "x-srv-span",
+              "value": "v=1;s=72767c7403418fb3"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "X-RateLimit-Limit",
+              "value": "120"
+            },
+            {
+              "key": "X-RateLimit-Remaining",
+              "value": "118"
+            },
+            {
+              "key": "X-RateLimit-Reset",
+              "value": "1603331427"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"ff-9I9KZ82MulcuryRRpqZvm9lQW4c\""
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "[\n    {\n        \"id\": 2658765321,\n        \"name\": \"Clemson T-Shirt\",\n        \"description\": \"Large\",\n        \"price\": 39.99,\n        \"quantity\": 1\n    },\n    {\n        \"id\": 1547896485,\n        \"name\": \"Clemson Water Bottle\",\n        \"description\": \"12 fluid oz Container\",\n        \"price\": 11.99,\n        \"quantity\": 2\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "/postCart",
+      "_postman_id": "7fbff76f-06d4-42a0-ab77-00df467ebadd",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"id\": 49152559,\n    \"name\": \"deserunt dolore reprehenderit\",\n    \"description\": \"officia\",\n    \"price\": -9134444.414937362,\n    \"quantity\": 39390733\n}",
+          "options": {
+            "raw": {}
+          }
+        },
+        "url": "{{url}}/postCart/Cart_item",
+        "description": "Adds an item to the cart\n\nThe /postCart path input is an Item object containing:\n- id (integer) = The ID number of an item to be purchased.\n- name (string) = The name of the item.\n- description (string) = A description of the item.\n- price (double) = The price of the item.\n- quantity (integer) = The quantity of an item to be purchased.\n\nIf an error occurs, the output contains the following and a 400 Error response:\n- message = Item not provided\n\nOtherwise, a 200 OK response is outputted with the following:\n- message = Successfully Added Item to Cart"
+      },
+      "response": [
+        {
+          "id": "3c997038-85b2-4195-a87e-9362998215b6",
+          "name": "Successfully Added Item to Cart",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": 49152559,\n    \"name\": \"deserunt dolore reprehenderit\",\n    \"description\": \"officia\",\n    \"price\": -9134444.414937362,\n    \"quantity\": 39390733\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "{{url}}/postCart/Cart_item"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Fri, 23 Oct 2020 22:10:45 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "x-srv-trace",
+              "value": "v=1;t=bdbc89416a81e200"
+            },
+            {
+              "key": "x-srv-span",
+              "value": "v=1;s=6840e5add563e3bd"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "X-RateLimit-Limit",
+              "value": "120"
+            },
+            {
+              "key": "X-RateLimit-Remaining",
+              "value": "118"
+            },
+            {
+              "key": "X-RateLimit-Reset",
+              "value": "1603491096"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"36-LI2c4QulFC8bsEl24uiBrXE7USc\""
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\r\n \"message\": \"Successfully Added an Item to Cart\"\r\n}"
+        },
+        {
+          "id": "624119e4-e085-4b55-b396-e554abdabf34",
+          "name": "Invalid Request",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": 49152559,\n    \"name\": \"deserunt dolore reprehenderit\",\n    \"description\": \"officia\",\n    \"price\": -9134444.414937362,\n    \"quantity\": 39390733\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "{{url}}/postCart/400Error"
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "html",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Fri, 23 Oct 2020 22:13:24 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Server",
+              "value": "nginx"
+            },
+            {
+              "key": "x-srv-trace",
+              "value": "v=1;t=759e83b795ca38ca"
+            },
+            {
+              "key": "x-srv-span",
+              "value": "v=1;s=2080c890dccd135f"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "X-RateLimit-Limit",
+              "value": "120"
+            },
+            {
+              "key": "X-RateLimit-Remaining",
+              "value": "119"
+            },
+            {
+              "key": "X-RateLimit-Reset",
+              "value": "1603491096"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"36-LI2c4QulFC8bsEl24uiBrXE7USc\""
+            },
+            {
+              "key": "Vary",
+              "value": "Accept-Encoding"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\r\n    \"message\": \"Item not provided\"\r\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "id": "baseUrl",
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
