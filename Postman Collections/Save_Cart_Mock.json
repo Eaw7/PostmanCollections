@@ -1,0 +1,386 @@
+{
+  "info": {
+    "_postman_id": "e5e4c14a-0376-4d79-9ed3-3899142c82cf",
+    "name": "Save Cart Mock Collection",
+    "description": "An API for the Cart on an E-commerce store selling fan gear.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "post Saved Cart",
+      "item": [
+        {
+          "name": "/postSavedCart/:CartID/:UserID",
+          "_postman_id": "24fbd70d-37cb-43ae-91a2-79417576295e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "{{url}}/postSavedCart/:CartID/:UserID/",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "postSavedCart",
+                ":CartID",
+                ":UserID",
+                ""
+              ],
+              "variable": [
+                {
+                  "key": "CartID",
+                  "value": "",
+                  "type": "string"
+                },
+                {
+                  "key": "UserID",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "Saves a specific cart to a specific user"
+          },
+          "response": [
+            {
+              "id": "389c6c20-6fe6-4585-8f1a-42fcf1925383",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{url}}/postSavedCart/:CartID/:UserID/Error",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postSavedCart",
+                    ":CartID",
+                    ":UserID",
+                    "Error"
+                  ],
+                  "variable": [
+                    {
+                      "key": "CartID"
+                    },
+                    {
+                      "key": "UserID"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Invalid Request: Cart and User IDs not recognized\"\n}"
+            },
+            {
+              "id": "e89e3cee-e6cf-4573-9d60-f95a89d4939e",
+              "name": "Succesfully saved cart to user",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{url}}/postSavedCart/:CartID/:UserID",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postSavedCart",
+                    ":CartID",
+                    ":UserID"
+                  ],
+                  "variable": [
+                    {
+                      "key": "CartID"
+                    },
+                    {
+                      "key": "UserID"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Successfully saved Cart to User\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/postSavedCart/:UserID",
+          "_postman_id": "4a529e31-7b68-4132-b255-303ee749658a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "{{url}}/postSavedCart/:UserID",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "postSavedCart",
+                ":UserID"
+              ],
+              "variable": [
+                {
+                  "key": "UserID",
+                  "value": "12342252",
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "Saves a specific cart to a specific user"
+          },
+          "response": [
+            {
+              "id": "164f3749-d8b5-4932-a39d-2d870d0c998a",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{url}}/postSavedCart/:UserID/Error",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postSavedCart",
+                    ":UserID",
+                    "Error"
+                  ],
+                  "variable": [
+                    {
+                      "key": "UserID"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Invalid Request: UserID not valid, Cart not updated\"\n}"
+            },
+            {
+              "id": "67c3a6de-1acc-4f77-b264-d6a41234a760",
+              "name": "Succesfully added item cart to user",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{url}}/postSavedCart/:UserID",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postSavedCart",
+                    ":UserID"
+                  ],
+                  "variable": [
+                    {
+                      "key": "UserID",
+                      "value": ""
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Successfully added Cart to User\"\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "8e5eb14b-78f5-4dd6-8d00-444b4ffc55d0"
+    },
+    {
+      "name": "/getSavedCart/:UserID",
+      "_postman_id": "cd45b13d-1296-48af-9113-6de492bd18bb",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/getSavedCart/:UserID",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "getSavedCart",
+            ":UserID"
+          ],
+          "variable": [
+            {
+              "key": "UserID",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "description": "Retrieves a list of items in saved cart coresponding to UserID"
+      },
+      "response": [
+        {
+          "id": "78fcfb87-57bf-47b3-bf63-10aa52d668c7",
+          "name": "Invalid request",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/getSavedCart/:UserID/Error",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "getSavedCart",
+                ":UserID",
+                "Error"
+              ],
+              "variable": [
+                {
+                  "key": "UserID"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"Invalid Request: No cart provided\"\n}"
+        },
+        {
+          "id": "91297b9e-a707-4cb1-9cff-d970406d5c9f",
+          "name": "Cart successfully retrieved",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/getSavedCart/:UserID",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "getSavedCart",
+                ":UserID"
+              ],
+              "variable": [
+                {
+                  "key": "UserID"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"UserID\": 47534593,\n \"UCart\": [\n  {\n   \"id\": 56427054,\n   \"name\": \"Clemson T-shirt\",\n   \"description\": \"Orange with purple letters\",\n   \"price\": 48.99,\n   \"quantity\": 1,\n   \"stock\": 134\n  },\n  {\n   \"id\": 93985651,\n   \"name\": \"Clemson Baseball Cap\",\n   \"description\": \"Purple tiger paw on the brim\",\n   \"price\": 29.99,\n   \"quantity\": 2,\n   \"stock\": 15\n  }\n ]\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "id": "baseUrl",
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
