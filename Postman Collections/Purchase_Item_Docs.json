@@ -1,0 +1,425 @@
+{
+  "info": {
+    "_postman_id": "ec65bdac-f7e0-4997-978e-7946ab0776ee",
+    "name": "Purchase an Item Docs",
+    "description": "An API for the Cart on an E-commerce store selling fan gear.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "post Cart",
+      "item": [
+        {
+          "name": "/postCart",
+          "_postman_id": "bcd977be-5e94-41a6-825a-0e3f8754719c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": "{{url}}/postCart",
+            "description": "Adds an Item to the Cart.\n\nThe Cart itself is an array of Item objects with the following variables:\n- id = Item identifying number (long)\n- name = Name of the Item (string)\n- description = Detailed description of the Item to be added (string)\n- price = Cost of the Item to be purchased (double)\n- quantity = Amount of the specific Item to be purchased (integer)\n- stock = How much of the Item to be purchased is in stock (long)\n\nThe variables listed above are the required inputs needed to update the Cart. If it is successful, a message will print to the screen saying it was successful. If not, an error message will print to the screen instead."
+          },
+          "response": [
+            {
+              "id": "07283acd-13b9-4e99-879e-6799589b15ea",
+              "name": "Succesfully added an item to the cart",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}"
+                },
+                "url": "{{url}}/postCart"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Successfully added an Item to the Cart\"\n}"
+            },
+            {
+              "id": "5f23aaf9-0c13-446a-a0fc-fdf86d4ff7dd",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}"
+                },
+                "url": "{{url}}/postCart/Error"
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Invalid Request: Cart not found\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "/postCart/:CartID",
+          "_postman_id": "a705d5b1-43ab-4568-8147-023969b3b9aa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
+            "url": {
+              "raw": "{{url}}/postCart/:CartID",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "postCart",
+                ":CartID"
+              ],
+              "variable": [
+                {
+                  "key": "CartID",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "Adds an item to the cart given a Cart ID. The Cart ID is used to distinguish between other Cart objects.\n\nThe Cart itself is an array of Item objects with the following variables:\n- id = Item identifying number (long)\n- name = Name of the Item (string)\n- description = Detailed description of the Item to be added (string)\n- price = Cost of the Item to be purchased (double)\n- quantity = Amount of the specific Item to be purchased (integer)\n- stock = How much of the Item to be purchased is in stock (long)\n\nThe variables listed above are the required inputs needed to update the Cart. A Cart ID parameter is also needed to indicate the Cart needing updating. If it is successful, a message will print to the screen saying it was successful. If not, an error message will print to the screen instead."
+          },
+          "response": [
+            {
+              "id": "6e3198bb-9e8a-4559-9cce-6d6387ca585a",
+              "name": "Invalid request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/postCart/:CartID/Error",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postCart",
+                    ":CartID",
+                    "Error"
+                  ],
+                  "variable": [
+                    {
+                      "key": "CartID"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Invalid Request: Cart not found\"\n}"
+            },
+            {
+              "id": "e1f6969b-9cdf-40f6-88d8-c81ffb983f07",
+              "name": "Succesfully added an item to the cart",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"id\": \"<long>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"price\": \"<double>\",\n    \"quantity\": \"<integer>\",\n    \"stock\": \"<long>\"\n}"
+                },
+                "url": {
+                  "raw": "{{url}}/postCart/:CartID",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "postCart",
+                    ":CartID"
+                  ],
+                  "variable": [
+                    {
+                      "key": "CartID"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n \"message\": \"Successfully added an Item to the Cart\"\n}"
+            }
+          ]
+        }
+      ],
+      "_postman_id": "73f095d9-4497-461c-a0a4-74051f84a500",
+      "description": "Adds an item to the cart."
+    },
+    {
+      "name": "/getCart/:CartID",
+      "_postman_id": "0ed75261-ca94-4031-a1f4-b84e724ddace",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/getCart/:CartID",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "getCart",
+            ":CartID"
+          ],
+          "variable": [
+            {
+              "key": "CartID",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "description": "Retrieves a list of items in the current Cart.\n\nThe Cart itself is an array of Item objects with the following variables:\n- id = Item identifying number (long)\n- name = Name of the Item (string)\n- description = Detailed description of the Item to be added (string)\n- price = Cost of the Item to be purchased (double)\n- quantity = Amount of the specific Item to be purchased (integer)\n- stock = How much of the Item to be purchased is in stock (long)\n\nThe CartID parameter is required to determine which Cart to retrieve. If the GET is successful, the current Cart is outputted to the screen. Otherwise, an error message is displayed."
+      },
+      "response": [
+        {
+          "id": "371584d1-ad13-46ec-9dff-b8d2956e49d9",
+          "name": "Cart successfully retrieved",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/getCart/:CartID",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "getCart",
+                ":CartID"
+              ],
+              "variable": [
+                {
+                  "key": "CartID"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "[\n {\n  \"id\": 123456789,\n  \"name\": \"Clemson T-shirt\",\n  \"description\": \"Orange with purple letters\",\n  \"price\": 48.99,\n  \"quantity\": 1,\n  \"stock\": 135\n },\n {\n  \"id\": 5634749,\n  \"name\": \"Clemson Baseball Cap\",\n  \"description\": \"Purple tiger paw\",\n  \"price\": 29.99,\n  \"quantity\": 2,\n  \"stock\": 35\n }\n]"
+        },
+        {
+          "id": "7975ac09-b7ec-4744-80f7-b249bd8725f7",
+          "name": "Invalid request",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/getCart/:CartID/Error",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "getCart",
+                ":CartID",
+                "Error"
+              ],
+              "variable": [
+                {
+                  "key": "CartID"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"Invalid Request: Cart ID invalid\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "/getSavedCart/:UserID",
+      "_postman_id": "2c76f7fd-d641-45bf-b43e-62a68751c632",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{url}}/getSavedCart/:UserID",
+          "host": [
+            "{{url}}"
+          ],
+          "path": [
+            "getSavedCart",
+            ":UserID"
+          ],
+          "variable": [
+            {
+              "key": "UserID",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "description": "Retrieves a list of items in the saved Cart corresponding to the UserID.\n\nThe Cart itself is an array of Item objects with the following variables:\n- id = Item identifying number (long)\n- name = Name of the Item (string)\n- description = Detailed description of the Item to be added (string)\n- price = Cost of the Item to be purchased (double)\n- quantity = Amount of the specific Item to be purchased (integer)\n- stock = How much of the Item to be purchased is in stock (long)\n\nThe UserID parameter is required to determine which Cart to retrieve according to the active User. If the GET is successful, the current Cart is outputted to the screen. Otherwise, an error message is displayed."
+      },
+      "response": [
+        {
+          "id": "0eb1adbe-b9c4-42b2-b718-abbdab4b0a23",
+          "name": "Invalid request",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/getSavedCart/:UserID/Error",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "getSavedCart",
+                ":UserID",
+                "Error"
+              ],
+              "variable": [
+                {
+                  "key": "UserID"
+                }
+              ]
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"message\": \"Invalid Request: User ID invalid\"\n}"
+        },
+        {
+          "id": "ae426d0f-6030-4711-abb7-dffbab83ec25",
+          "name": "Cart successfully retrieved",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/getSavedCart/:UserID",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "getSavedCart",
+                ":UserID"
+              ],
+              "variable": [
+                {
+                  "key": "UserID"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"UserID\": 92572006,\n \"UCart\": [\n  {\n   \"id\": 123456789,\n   \"name\": \"Clemson T-shirt\",\n   \"description\": \"Orange with purple writing\",\n   \"price\": 48.99,\n   \"quantity\": 1,\n   \"stock\": 135\n  },\n  {\n   \"id\": 564495747,\n   \"name\": \"Clemson Baseball Cap\",\n   \"description\": \"Purple tiger paw\",\n   \"price\": 29.99,\n   \"quantity\": 2,\n   \"stock\": 35\n  }\n ]\n}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "id": "baseUrl",
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
